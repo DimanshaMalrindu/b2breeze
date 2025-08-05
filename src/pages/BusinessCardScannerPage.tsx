@@ -32,7 +32,7 @@ export const BusinessCardScannerPage: React.FC<BusinessCardScannerPageProps> = (
                             )}
                             <div>
                                 <h1 className="text-xl font-semibold">Business Card Scanner</h1>
-                                <p className="text-sm text-muted-foreground">Scan and digitize business cards with B2BBreeze</p>
+                                <p className="text-sm text-muted-foreground">Scan and digitize business cards with B2Breeze</p>
                             </div>
                         </div>
                     </div>

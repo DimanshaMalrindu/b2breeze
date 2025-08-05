@@ -162,7 +162,7 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = () 
             format,
             dateRange,
             includeCharts: format === 'pdf',
-            reportTitle: `B2BBreeze Analytics Report - ${new Date().toLocaleDateString()}`
+            reportTitle: `B2Breeze Analytics Report - ${new Date().toLocaleDateString()}`
         };
 
         try {
@@ -209,7 +209,7 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = () 
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Analytics Dashboard</h1>
-                    <p className="text-gray-600">Track your business performance and insights with B2BBreeze</p>
+                    <p className="text-gray-600">Track your business performance and insights with B2Breeze</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
                     <select

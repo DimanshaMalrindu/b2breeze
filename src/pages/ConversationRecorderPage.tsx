@@ -1215,7 +1215,7 @@ export const ConversationRecorderPage: React.FC<ConversationRecorderPageProps> =
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Conversation Recorder</h1>
-                    <p className="text-gray-600">Record and transcribe client conversations in real-time with B2BBreeze</p>
+                    <p className="text-gray-600">Record and transcribe client conversations in real-time with B2Breeze</p>
                 </div>
 
                 {!checkSpeechRecognitionSupport() && (

@@ -303,7 +303,7 @@ export const TaskPlannerPage: React.FC<TaskPlannerPageProps> = ({ onNavigate }) 
                     <div>
                         <h1 className="text-3xl font-bold text-foreground">Task Planner</h1>
                         <p className="text-muted-foreground">
-                            Stay organized with your business tasks and deadlines - B2BBreeze keeps it smooth
+                            Stay organized with your business tasks and deadlines - B2Breeze keeps it smooth
                         </p>
                     </div>
                     <div className="flex gap-2">

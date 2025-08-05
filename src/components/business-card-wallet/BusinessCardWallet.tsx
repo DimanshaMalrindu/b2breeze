@@ -455,7 +455,7 @@ export const BusinessCardWallet: React.FC<BusinessCardWalletProps> = ({ onAddNew
                         Business Card Wallet
                     </h1>
                     <p className="text-muted-foreground">
-                        {cards.length} {cards.length === 1 ? 'contact' : 'contacts'} in your B2BBreeze wallet
+                        {cards.length} {cards.length === 1 ? 'contact' : 'contacts'} in your B2Breeze wallet
                     </p>
                 </div>
                 <div className="flex gap-2">

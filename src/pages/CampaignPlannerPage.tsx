@@ -880,7 +880,7 @@ export const CampaignPlannerPage: React.FC<CampaignPlannerPageProps> = ({ onNavi
                 <div className="flex-1">
                     <h1 className="text-3xl font-bold text-foreground">Campaign Planner</h1>
                     <p className="text-muted-foreground">
-                        Create and manage smart, personalized follow-up campaigns with B2BBreeze
+                        Create and manage smart, personalized follow-up campaigns with B2Breeze
                     </p>
                 </div>
             </div>

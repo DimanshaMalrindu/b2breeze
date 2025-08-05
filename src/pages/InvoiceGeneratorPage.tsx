@@ -697,7 +697,7 @@ export const InvoiceGeneratorPage: React.FC<InvoiceGeneratorPageProps> = ({ onNa
                         <div className="flex-1">
                             <h1 className="text-3xl font-bold text-foreground">Invoice Generator</h1>
                             <p className="text-muted-foreground">
-                                Create and manage professional quotations, proforma and commercial invoices with B2BBreeze
+                                Create and manage professional quotations, proforma and commercial invoices with B2Breeze
                             </p>
                         </div>
                     </div>

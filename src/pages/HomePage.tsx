@@ -115,7 +115,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                             <span className="text-primary">Business Operations</span>
                         </h1>
                         <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                            Welcome to B2BBreeze - business, as smooth as a breeze.
+                            Welcome to B2Breeze - business, as smooth as a breeze.
                             All-in-one professional platform for modern business management.
                             From business card scanning to analytics, everything you need to grow your business efficiently.
                         </p>
@@ -162,7 +162,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                         Ready to Transform Your Business?
                     </h2>
                     <p className="text-xl text-muted-foreground mb-8">
-                        Join thousands of professionals who trust B2BBreeze for their daily operations.
+                        Join thousands of professionals who trust B2Breeze for their daily operations.
                         Experience business, as smooth as a breeze.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">

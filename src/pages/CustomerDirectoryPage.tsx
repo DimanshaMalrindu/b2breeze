@@ -80,7 +80,7 @@ export const CustomerDirectoryPage: React.FC<CustomerDirectoryPageProps> = ({ on
                     <div>
                         <h1 className="text-3xl font-bold text-foreground">Customer Directory</h1>
                         <p className="text-muted-foreground">
-                            {filteredCustomers.length} customer{filteredCustomers.length !== 1 ? 's' : ''} managed with B2BBreeze
+                            {filteredCustomers.length} customer{filteredCustomers.length !== 1 ? 's' : ''} managed with B2Breeze
                             {selectedFolderName && ` in "${selectedFolderName}"`}
                         </p>
                     </div>

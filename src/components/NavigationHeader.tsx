@@ -102,7 +102,7 @@ export const NavigationHeader: React.FC<NavigationHeaderProps> = ({ currentPage,
                                 <span className="text-primary-foreground font-bold text-sm">B2B</span>
                             </div>
                             <div className="hidden sm:block">
-                                <h1 className="text-lg font-bold">B2BBreeze</h1>
+                                <h1 className="text-lg font-bold">B2Breeze</h1>
                                 <p className="text-xs text-muted-foreground -mt-1">Business, as smooth as a breeze</p>
                             </div>
                         </div>
