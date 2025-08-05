@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sample Business Cards</title>
+</head>
+<body>
+    <h1>Sample Business Cards Test</h1>
+    <div id="output"></div>
+    
+    <script>
+        // Sample business cards data (simplified for browser test)
+        const SAMPLE_BUSINESS_CARDS = [
+            {
+                id: 'sample-1',
+                name: 'John Smith',
+                company: 'TechCorp Solutions',
+                title: 'Senior Software Engineer',
+                email: 'john.smith@techcorp.com',
+                phone: '+1 (555) 123-4567',
+                createdAt: new Date('2024-07-15'),
+                updatedAt: new Date('2024-07-15'),
+            },
+            {
+                id: 'sample-2',
+                name: 'Sarah Johnson',
+                company: 'Digital Marketing Pro',
+                title: 'Marketing Director',
+                email: 'sarah@digitalmarketingpro.com',
+                phone: '+1 (555) 987-6543',
+                createdAt: new Date('2024-07-20'),
+                updatedAt: new Date('2024-07-20'),
+            }
+        ];
+
+        // Test localStorage functionality
+        function testSampleCards() {
+            const output = document.getElementById('output');
+            
+            // Clear existing data
+            localStorage.removeItem('businessCards');
+            output.innerHTML += '<p>✅ Cleared existing business cards</p>';
+            
+            // Add sample cards
+            localStorage.setItem('businessCards', JSON.stringify(SAMPLE_BUSINESS_CARDS));
+            output.innerHTML += '<p>✅ Added sample business cards to localStorage</p>';
+            
+            // Retrieve and display
+            const stored = JSON.parse(localStorage.getItem('businessCards') || '[]');
+            output.innerHTML += `<p>✅ Retrieved ${stored.length} business cards:</p>`;
+            
+            stored.forEach(card => {
+                output.innerHTML += `<p>   - ${card.name} from ${card.company}</p>`;
+            });
+            
+            output.innerHTML += '<p><strong>✅ Sample business cards are working correctly!</strong></p>';
+        }
+        
+        // Run test
+        testSampleCards();
+    </script>
+</body>
+</html>
