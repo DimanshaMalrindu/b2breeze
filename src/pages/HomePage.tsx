@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     Wallet,
     Users,
@@ -7,7 +7,9 @@ import {
     FileText,
     BarChart3,
     Scan,
-    Mic
+    Mic,
+    Play,
+    X
 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -53,6 +55,27 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+    const [showVideoDialog, setShowVideoDialog] = useState(false)
+
+    // Handle Escape key to close video dialog
+    useEffect(() => {
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && showVideoDialog) {
+                setShowVideoDialog(false)
+            }
+        }
+
+        if (showVideoDialog) {
+            document.addEventListener('keydown', handleEscape)
+            // Prevent background scroll when modal is open
+            document.body.style.overflow = 'hidden'
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape)
+            document.body.style.overflow = 'unset'
+        }
+    }, [showVideoDialog])
     const features = [
         {
             icon: <Scan className="w-6 h-6" />,
@@ -123,7 +146,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                             <Button size="lg" className="text-lg px-8 py-3" onClick={() => onNavigate('business-card-scanner')}>
                                 Try Scanner Now
                             </Button>
-                            <Button variant="outline" size="lg" className="text-lg px-8 py-3">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="text-lg px-8 py-3"
+                                onClick={() => setShowVideoDialog(true)}
+                            >
+                                <Play className="w-5 h-5 mr-2" />
                                 Watch Demo
                             </Button>
                         </div>
@@ -175,6 +204,47 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     </div>
                 </div>
             </section>
+
+            {/* Video Demo Modal */}
+            {showVideoDialog && (
+                <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+                    <div className="relative w-full max-w-6xl bg-background rounded-lg shadow-xl">
+                        <div className="flex items-center justify-between p-6 border-b">
+                            <div>
+                                <h2 className="text-2xl font-bold">B2Breeze Demo</h2>
+                                <p className="text-muted-foreground mt-1">
+                                    Watch how B2Breeze can transform your business operations
+                                </p>
+                            </div>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => setShowVideoDialog(false)}
+                                className="h-8 w-8"
+                            >
+                                <X className="h-4 w-4" />
+                            </Button>
+                        </div>
+                        <div className="p-6">
+                            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+                                <iframe
+                                    src="https://www.youtube.com/embed/IlogQSTRoAc?autoplay=1"
+                                    title="B2Breeze Demo Video"
+                                    className="absolute inset-0 w-full h-full"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    {/* Click outside to close */}
+                    <div
+                        className="absolute inset-0 -z-10"
+                        onClick={() => setShowVideoDialog(false)}
+                    />
+                </div>
+            )}
         </div>
     )
 }
