@@ -25,7 +25,6 @@ import {
     filterTasks,
     sortTasks,
     toggleTaskStatus,
-    deleteTask,
     getPriorityColor,
     getStatusColor,
     isOverdue,
@@ -253,7 +252,7 @@ export const TaskPlannerPage: React.FC<TaskPlannerPageProps> = ({ onNavigate }) 
         alert(`Edit task feature coming soon! Task: ${task.title}`);
     };
 
-    const handleDeleteTask = (taskId: string) => {
+    const handleDeleteTask = () => {
         if (window.confirm('Are you sure you want to delete this task?')) {
             // deleteTask(taskId);
             // loadTasks();
