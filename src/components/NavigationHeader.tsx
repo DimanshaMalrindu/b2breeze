@@ -10,7 +10,8 @@ import {
     BarChart3,
     Menu,
     X,
-    Mic
+    Mic,
+    LogOut
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -18,9 +19,10 @@ import { Card } from '@/components/ui/card';
 interface NavigationHeaderProps {
     currentPage: string;
     onNavigate: (page: string) => void;
+    onLogout?: () => void;
 }
 
-export const NavigationHeader: React.FC<NavigationHeaderProps> = ({ currentPage, onNavigate }) => {
+export const NavigationHeader: React.FC<NavigationHeaderProps> = ({ currentPage, onNavigate, onLogout }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
     const navigationItems = [
@@ -144,6 +146,17 @@ export const NavigationHeader: React.FC<NavigationHeaderProps> = ({ currentPage,
                                     {item.icon}
                                 </Button>
                             ))}
+                            {onLogout && (
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={onLogout}
+                                    className="flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                                    title="Logout"
+                                >
+                                    <LogOut className="w-4 h-4" />
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -171,6 +184,21 @@ export const NavigationHeader: React.FC<NavigationHeaderProps> = ({ currentPage,
                                     </Button>
                                 ))}
                             </div>
+                            {onLogout && (
+                                <div className="mt-4 pt-4 border-t">
+                                    <Button
+                                        variant="outline"
+                                        onClick={() => {
+                                            onLogout();
+                                            setMobileMenuOpen(false);
+                                        }}
+                                        className="w-full flex items-center gap-2"
+                                    >
+                                        <LogOut className="w-4 h-4" />
+                                        Logout
+                                    </Button>
+                                </div>
+                            )}
                         </div>
                     </Card>
                 </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { HomePage } from '@/pages/HomePage'
 import { BusinessCardScannerPage } from '@/pages/BusinessCardScannerPage'
 import { BusinessCardWalletPage } from '@/pages/BusinessCardWalletPage'
@@ -9,9 +9,30 @@ import { InvoiceGeneratorPage } from '@/pages/InvoiceGeneratorPage'
 import { AnalyticsDashboardPage } from '@/pages/AnalyticsDashboardPage'
 import { ConversationRecorderPage } from '@/pages/ConversationRecorderPage'
 import { NavigationHeader } from '@/components/NavigationHeader'
+import { Login } from '@/components/Login'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  // Check if user is already logged in on app start
+  useEffect(() => {
+    const savedAuth = localStorage.getItem('b2breeze-auth')
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true)
+    }
+  }, [])
+
+  const handleLogin = () => {
+    setIsAuthenticated(true)
+    localStorage.setItem('b2breeze-auth', 'true')
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+    localStorage.removeItem('b2breeze-auth')
+    setCurrentPage('home')
+  }
 
   const handleNavigate = (page: string) => {
     setCurrentPage(page)
@@ -44,10 +65,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      <NavigationHeader currentPage={currentPage} onNavigate={handleNavigate} />
-      <main>
-        {renderCurrentPage()}
-      </main>
+      {!isAuthenticated ? (
+        <Login onLogin={handleLogin} />
+      ) : (
+        <>
+          <NavigationHeader
+            currentPage={currentPage}
+            onNavigate={handleNavigate}
+            onLogout={handleLogout}
+          />
+          <main>
+            {renderCurrentPage()}
+          </main>
+        </>
+      )}
     </div>
   )
 }
